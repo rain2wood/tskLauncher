@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        triStateTextView = findViewById(R.id.tsk_status);
 
         startMonitor(tskNode);
 
@@ -70,9 +71,12 @@ public class MainActivity extends AppCompatActivity {
     private void handleTskChange() {
         String tskValue = readTskValue();
         if (!tskValue.equals(lastTskValue)) {
+            String tskMode = tskMode(tskValue);
+
             runOnUiThread(new Runnable() {
                 public void run() {
-                    Toast.makeText(MainActivity.this, "Current ringer mode is is " + tskMode(tskValue), Toast.LENGTH_SHORT).show();
+                    triStateTextView.setText(tskMode);
+                    Toast.makeText(MainActivity.this, "Current ringer mode is is " + tskMode, Toast.LENGTH_SHORT).show();
                 }
             });
 
