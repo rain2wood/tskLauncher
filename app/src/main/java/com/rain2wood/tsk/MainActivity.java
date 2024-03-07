@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
             switch (tskValue) {
                 case "1": // silent mode
-                    launchApplication("com.oplus.camera");
+                    launchApplication("com.oplus.camera", "com.oplus.camera.Camera");
                 case "2": // vibrate mode
                     break;
                 case "3": // ring mode
@@ -126,8 +126,15 @@ public class MainActivity extends AppCompatActivity {
         return stringBuilder.toString();
     }
 
-    private void launchApplication(String packageName) {
-        Intent intent = getPackageManager().getLaunchIntentForPackage(packageName);
+    private void launchApplication(String packageName, String ActivityName) {
+        Intent intent;
+        if (ActivityName.equals("null")) {
+            intent = getPackageManager().getLaunchIntentForPackage(packageName);
+        } else {
+            intent = new Intent(Intent.ACTION_MAIN);
+            intent.setComponent(new ComponentName(packageName, ActivityName));
+            intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        }
         startActivity(intent);
     }
     private void stopMonitor() {
