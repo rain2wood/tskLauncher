@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
             switch (tskValue) {
                 case "1": // silent mode
-                    launchApplication("com.oplus.camera", "com.oplus.camera.Camera");
+                    launchApplication("com.miHoYo.GenshinImpact", "com.miHoYo.GetMobileInfo.MainActivity");
                 case "2": // vibrate mode
                     break;
                 case "3": // ring mode
