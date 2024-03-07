@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         if (!tskValue.equals(lastTskValue)) {
             runOnUiThread(new Runnable() {
                 public void run() {
-                    Toast.makeText(MainActivity.this, "Current tsk value is " + tskValue, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Current ringer mode is is " + tskMode(tskValue), Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -150,6 +150,19 @@ public class MainActivity extends AppCompatActivity {
         }
         if (monitoringThread != null && monitoringThread.isAlive()) {
             monitoringThread.interrupt();
+        }
+    }
+
+    private String tskMode(String tskValue) {
+        switch (tskValue) {
+            case "1":
+                return "Silent";
+            case "2":
+                return "Vibrate";
+            case "3":
+                return "Ring";
+            default:
+                return "Unknown";
         }
     }
 }
