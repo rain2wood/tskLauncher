@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         startMonitor(tskNode);
 
         lastTskValue = readTskValue();
+        triStateTextView.setText(tskMode(lastTskValue));
     }
 
     @Override
