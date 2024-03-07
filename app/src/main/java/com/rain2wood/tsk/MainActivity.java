@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         return;
     }
 
-    private String readTskValue() {
+    public String readTskValue() {
         StringBuilder stringBuilder = new StringBuilder();
         Process process = null;
         BufferedReader bufferedReader = null;
